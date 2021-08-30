@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="abc.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Childen's Shop</h1>
+    </header>
+    <form action="/insert" method="post">
+    Picture <input type="text" name="txtPricture">
+    <br>
+    Name <input type="text" name="txtName">
+    
+    <br>
+    Price <input type="text" name="txtPrice">
+    <br>
+    <input type="submit" value="Submit">
+    </form>
+    <form action="/search" method="post">
+    <input type = "text" name="txtSearch">
+    <input type="submit" value="Search">
+    </form>
+<article>
+    <table>
+             
+            <tr>
+             <th>Picture</th>
+             <th>Name</th>
+             <th>Price</th>
+             <th>Delete</th>
+             <th>Edit</th>
+            </tr>
+              {{#each data}}
+             <tr>
+                 <td> <img src="{{picture}}" width="150" height="100"> </td>
+                 <td> {{name}} </td>
+                 <td>{{price}} $ </td>
+                 <td> <a href="/delete?id={{_id}}"> Delete</a> </td>
+                 <td> <a href="/edit?id={{_id}}">Edit</a> </td>
+             </tr>
+             {{/each}}
+
+    </table>
+</article>
+</body>
+</html>
